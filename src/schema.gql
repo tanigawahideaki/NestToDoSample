@@ -1,0 +1,116 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  id: ID!
+
+  """@Validator.@IsNotEmpty()"""
+  taskName: String!
+
+  """@Validator.@IsNotEmpty()"""
+  description: String!
+
+  """@Validator.@IsNotEmpty()"""
+  deadline: String!
+}
+
+type Query {
+  todo(where: TodoWhereInput, orderBy: [TodoOrderByWithRelationInput!], cursor: TodoWhereUniqueInput, take: Int, skip: Int, distinct: [TodoScalarFieldEnum!]): Todo!
+}
+
+input TodoWhereInput {
+  AND: [TodoWhereInput!]
+  OR: [TodoWhereInput!]
+  NOT: [TodoWhereInput!]
+  id: IntFilter
+  taskName: StringFilter
+  description: StringFilter
+  deadline: StringFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input TodoOrderByWithRelationInput {
+  id: SortOrder
+  taskName: SortOrder
+  description: SortOrder
+  deadline: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input TodoWhereUniqueInput {
+  id: Int
+  taskName: String
+}
+
+enum TodoScalarFieldEnum {
+  id
+  taskName
+  description
+  deadline
+  createdAt
+  updatedAt
+}
+
+type Mutation {
+  createTodo(data: TodoCreateInput!): Todo!
+}
+
+input TodoCreateInput {
+  taskName: String!
+  description: String!
+  deadline: String!
+}
