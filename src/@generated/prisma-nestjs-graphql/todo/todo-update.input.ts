@@ -6,19 +6,18 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class TodoUpdateInput {
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  taskName?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    taskName?: StringFieldUpdateOperationsInput;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  description?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    description?: StringFieldUpdateOperationsInput;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  deadline?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    deadline?: StringFieldUpdateOperationsInput;
+  @HideField()
+  createdAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
-
-    @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+  @HideField()
+  updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

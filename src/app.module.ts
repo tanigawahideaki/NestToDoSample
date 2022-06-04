@@ -6,8 +6,6 @@ import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { PrismaService } from './prisma.service';
 import { TodosModule } from './todos/todos.module';
-import { TodosService } from './todos/todos.service';
-import { TodosResolver } from './todos/todos.resolver';
 
 @Module({
   imports: [
@@ -18,6 +16,6 @@ import { TodosResolver } from './todos/todos.resolver';
     TodosModule,
   ],
   controllers: [AppController],
-  providers: [AppService, PrismaService, TodosService, TodosResolver],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}

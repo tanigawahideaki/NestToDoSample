@@ -17,6 +17,8 @@ type Todo {
 
 type Query {
   todo(where: TodoWhereInput, orderBy: [TodoOrderByWithRelationInput!], cursor: TodoWhereUniqueInput, take: Int, skip: Int, distinct: [TodoScalarFieldEnum!]): Todo!
+  todoUniqu(where: TodoWhereUniqueInput!): Todo!
+  findAll(where: TodoWhereInput, orderBy: [TodoOrderByWithRelationInput!], cursor: TodoWhereUniqueInput, take: Int, skip: Int, distinct: [TodoScalarFieldEnum!]): Todo!
 }
 
 input TodoWhereInput {
@@ -107,10 +109,22 @@ enum TodoScalarFieldEnum {
 
 type Mutation {
   createTodo(data: TodoCreateInput!): Todo!
+  update(data: TodoUpdateInput!, where: TodoWhereUniqueInput!): Todo!
+  delete(where: TodoWhereUniqueInput!): Todo!
 }
 
 input TodoCreateInput {
   taskName: String!
   description: String!
   deadline: String!
+}
+
+input TodoUpdateInput {
+  taskName: StringFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  deadline: StringFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
 }
