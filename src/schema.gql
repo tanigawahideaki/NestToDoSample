@@ -18,7 +18,7 @@ type Todo {
 type Query {
   todo(where: TodoWhereInput, orderBy: [TodoOrderByWithRelationInput!], cursor: TodoWhereUniqueInput, take: Int, skip: Int, distinct: [TodoScalarFieldEnum!]): Todo!
   todoUniqu(where: TodoWhereUniqueInput!): Todo!
-  findAll(where: TodoWhereInput, orderBy: [TodoOrderByWithRelationInput!], cursor: TodoWhereUniqueInput, take: Int, skip: Int, distinct: [TodoScalarFieldEnum!]): Todo!
+  findAll(where: TodoWhereInput, orderBy: [TodoOrderByWithRelationInput!], cursor: TodoWhereUniqueInput, take: Int, skip: Int, distinct: [TodoScalarFieldEnum!]): [Todo!]!
 }
 
 input TodoWhereInput {

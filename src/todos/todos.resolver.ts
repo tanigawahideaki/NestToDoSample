@@ -22,7 +22,7 @@ export class TodosResolver {
     return this.todosService.findUnique(args);
   }
 
-  @Query(() => Todo)
+  @Query(() => [Todo])
   findAll(@Args() args: FindManyTodoArgs) {
     return this.todosService.findAll(args);
   }

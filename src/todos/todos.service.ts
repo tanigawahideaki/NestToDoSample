@@ -20,7 +20,7 @@ export class TodosService {
     return this.prisma.todo.findUnique(args);
   }
 
-  async findAll(args: FindManyTodoArgs): Promise<Todo[] | null> {
+  async findAll(args: FindManyTodoArgs): Promise<Todo[]> {
     return this.prisma.todo.findMany(args);
   }
 
